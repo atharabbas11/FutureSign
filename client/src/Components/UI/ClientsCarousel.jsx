@@ -10,16 +10,16 @@ const ClientsCarousel = ({ clients = [] }) => {
 
   // Default clients if none provided
   const defaultClients = [
-    "/public/images/logos/acc.png",
-    "/public/images/logos/afstar.png",
-    "/public/images/logos/ambuja.png",
-    "/public/images/logos/hangyo.jpg",
-    "/public/images/logos/maha.png",
-    "/public/images/logos/mslife.png",
-    "/public/images/logos/ramco.jpg",
-    "/public/images/logos/sudhakar.png",
-    "/public/images/logos/supreme.png",
-    "/public/images/logos/ultratech.png",
+    "/images/logos/acc.png",
+    "/images/logos/afstar.png",
+    "/images/logos/ambuja.png",
+    "/images/logos/hangyo.jpg",
+    "/images/logos/maha.png",
+    "/images/logos/mslife.png",
+    "/images/logos/ramco.jpg",
+    "/images/logos/sudhakar.png",
+    "/images/logos/supreme.png",
+    "/images/logos/ultratech.png",
   ];
 
   // Use provided clients or default ones
