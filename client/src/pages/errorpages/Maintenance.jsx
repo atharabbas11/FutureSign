@@ -1,7 +1,7 @@
 // src/pages/ErrorPages/Maintenance.jsx
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Wrench, Clock, HardDrive, Server, Wrench, Cpu } from 'lucide-react';
+import { Wrench, Clock, HardDrive, Server, Cpu } from 'lucide-react';
 
 const Maintenance = () => {
   const [timeLeft, setTimeLeft] = useState({
