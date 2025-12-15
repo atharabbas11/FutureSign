@@ -1,8 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ScrollToTop from './Components/UI/ScrollToTop'
-import Navbar from './components/Layout/Navbar'
-import Footer from './components/Layout/Footer'
+import Navbar from './Components/Layout/Navbar'
+import Footer from './Components/Layout/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
