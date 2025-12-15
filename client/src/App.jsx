@@ -11,11 +11,11 @@ import Contact from './pages/Contact'
 import './index.css'
 
 // Lazy Loading Error Pages
-const NotFound = lazy(() => import('./pages/ErrorPages/NotFound'));
-const ServerError = lazy(() => import('./pages/ErrorPages/ServerError'));
-const Forbidden = lazy(() => import('./pages/ErrorPages/Forbidden'));
-const NetworkError = lazy(() => import('./pages/ErrorPages/NetworkError'));
-const Maintenance = lazy(() => import('./pages/ErrorPages/Maintenance'));
+const NotFound = lazy(() => import('./pages/errorpages/NotFound'));
+const ServerError = lazy(() => import('./pages/errorpages/ServerError'));
+const Forbidden = lazy(() => import('./pages/errorpages/Forbidden'));
+const NetworkError = lazy(() => import('./pages/errorpages/NetworkError'));
+const Maintenance = lazy(() => import('./pages/errorpages/Maintenance'));
 
 function App() {
   return (
