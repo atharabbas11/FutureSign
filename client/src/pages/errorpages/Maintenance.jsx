@@ -1,7 +1,7 @@
 // src/pages/ErrorPages/Maintenance.jsx
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Tools, Clock, HardDrive, Server, Wrench, Cpu } from 'lucide-react';
+import { Wrench, Clock, HardDrive, Server, Wrench, Cpu } from 'lucide-react';
 
 const Maintenance = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -59,7 +59,7 @@ const Maintenance = () => {
           className="relative mb-8"
         >
           <div className="relative inline-block">
-            <Tools className="h-48 w-48 text-amber-500/20" />
+            <Wrench className="h-48 w-48 text-amber-500/20" />
             <motion.div
               animate={{ 
                 rotate: 360,
@@ -184,7 +184,7 @@ const Maintenance = () => {
           className="bg-gradient-to-r from-amber-100/50 to-orange-100/50 rounded-2xl p-8 max-w-3xl mx-auto"
         >
           <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center justify-center gap-2">
-            <Tools className="h-5 w-5 text-amber-600" />
+            <Wrench className="h-5 w-5 text-amber-600" />
             What's Happening?
           </h3>
           
