@@ -205,9 +205,9 @@ const Contact = () => {
     {
       icon: <Mail className="h-6 w-6" />,
       title: 'Email Us',
-      details: 'info@futuresign.com',
+      details: 'info@zasfuturesign.com',
       description: 'Send us your query',
-      action: 'mailto:info@futuresign.com',
+      action: 'mailto:info@zasfuturesign.com',
       color: 'from-[#1e40af] to-blue-400'
     },
     {
