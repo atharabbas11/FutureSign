@@ -233,17 +233,97 @@ const AnimatedCounter = ({ from, to }) => {
 // Premium Logo Carousel
 const SmoothLogoCarousel = () => {
   const logos = [
-    { id: 1, name: "Acc", image: "/images/logos/acc.png" },
-    { id: 2, name: "Afstar", image: "/images/logos/afstar.png" },
-    { id: 3, name: "Ambuja", image: "/images/logos/ambuja.png" },
-    { id: 4, name: "Hangyo", image: "/images/logos/hangyo.jpg" },
-    { id: 5, name: "Maha", image: "/images/logos/maha.png" },
-    { id: 6, name: "Mslife", image: "/images/logos/mslife.png" },
-    { id: 7, name: "Ramco", image: "/images/logos/ramco.jpg" },
-    { id: 8, name: "Sudhakar", image: "/images/logos/sudhakar.png" },
-    { id: 9, name: "Supreme", image: "/images/logos/supreme.png" },
-    { id: 10, name: "Ultratech", image: "/images/logos/ultratech.png" },
+    { id: 1, name: "Acc", image: "/public/images/logos/acc.png" },
+    { id: 2, name: "Afstar", image: "/public/images/logos/afstar.png" },
+    { id: 3, name: "Ambuja", image: "/public/images/logos/ambuja.png" },
+    { id: 4, name: "Hangyo", image: "/public/images/logos/hangyo.jpg" },
+    { id: 5, name: "Maha", image: "/public/images/logos/maha.png" },
+    { id: 6, name: "Mslife", image: "/public/images/logos/mslife.png" },
+    { id: 7, name: "Ramco", image: "/public/images/logos/ramco.jpg" },
+    { id: 8, name: "Sudhakar", image: "/public/images/logos/sudhakar.png" },
+    { id: 9, name: "Supreme", image: "/public/images/logos/supreme.png" },
+    { id: 10, name: "Ultratech", image: "/public/images/logos/ultratech.png" },
   ];
+
+
+  // return (
+  //   <section className="relative py-16 bg-gradient-to-b from-white to-blue-50 overflow-hidden">
+  //     <BackgroundPattern type="dots" color="blue" opacity={0.05} />
+      
+  //     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  //       <motion.div
+  //         initial="hidden"
+  //         whileInView="visible"
+  //         viewport={{ once: true }}
+  //         variants={fadeInUp}
+  //         className="text-center mb-16"
+  //       >
+  //         <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#1e40af]/10 to-[#dd5428]/10 rounded-full mb-4 border border-blue-200/50">
+  //           <Users className="h-4 w-4 text-[#1e40af] mr-2" />
+  //           <span className="text-sm font-semibold text-[#1e40af]">Our Partners</span>
+  //         </div>
+  //         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+  //           Trusted By Industry
+  //           <span className="block bg-gradient-to-r from-[#1e40af] to-[#dd5428] bg-clip-text text-transparent">
+  //             Leaders Worldwide
+  //           </span>
+  //         </h2>
+  //         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+  //           Brands that trust us with their premium printing needs
+  //         </p>
+  //       </motion.div>
+
+  //       <div className="relative overflow-hidden">
+  //         <div className="flex gap-8 animate-scroll">
+  //           {[...Array(3)].map((_, setIndex) => (
+  //             <React.Fragment key={setIndex}>
+  //               {logos.map((logo) => (
+  //                 <motion.div
+  //                   key={`${setIndex}-${logo.id}`}
+  //                   whileHover={{ scale: 1.1, y: -5 }}
+  //                   className="flex-shrink-0 w-40 h-32 bg-white/80 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-blue-100 cursor-pointer"
+  //                 >
+  //                   <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${logo.color} flex items-center justify-center mb-3`}>
+  //                     <div className="text-white text-xl font-bold">
+  //                       {logo.name.charAt(0)}
+  //                     </div>
+  //                   </div>
+  //                   <div className="text-sm font-semibold text-gray-700 text-center">
+  //                     {logo.name}
+  //                   </div>
+  //                 </motion.div>
+  //               ))}
+  //             </React.Fragment>
+  //           ))}
+  //         </div>
+          
+  //         {/* Gradient overlays */}
+  //         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+  //         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+  //       </div>
+  //     </div>
+
+  //     <style jsx>{`
+  //       @keyframes scroll {
+  //         0% {
+  //           transform: translateX(0);
+  //         }
+  //         100% {
+  //           transform: translateX(calc(-192px * 10 - 32px * 9));
+  //         }
+  //       }
+        
+  //       .animate-scroll {
+  //         animation: scroll 40s linear infinite;
+  //         width: max-content;
+  //       }
+        
+  //       .animate-scroll:hover {
+  //         animation-play-state: paused;
+  //       }
+  //     `}</style>
+  //   </section>
+  // );
 
   return (
     <section className="relative py-16 bg-gradient-to-b from-white to-blue-50 overflow-x-hidden overflow-y-visible">
@@ -423,7 +503,7 @@ const TestimonialsCarousel = () => {
             <Star className="h-4 w-4 text-[#dd5428] mr-2" />
             <span className="text-sm font-semibold text-[#dd5428]">Client Stories</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-[1.2] overflow-visible">
             What Our Clients
             <span className="block bg-gradient-to-r from-[#1e40af] to-[#dd5428] bg-clip-text text-transparent">
               Say About Us
@@ -1433,7 +1513,6 @@ const Home = () => {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              // viewport={{ once: true }}
               viewport={{ once: true, margin: "-100px" }}
               variants={containerVariants}
               className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -1443,9 +1522,9 @@ const Home = () => {
                   <CheckCircle className="h-4 w-4 text-[#1e40af] mr-2" />
                   <span className="text-sm font-semibold text-[#1e40af]">Why Choose Us</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-[1.2] overflow-visible">
                   Why Choose
-                  <span className="block bg-gradient-to-r from-[#1e40af] to-[#dd5428] bg-clip-text text-transparent">
+                  <span className="block pb-1 bg-gradient-to-r from-[#1e40af] to-[#dd5428] bg-clip-text text-transparent">
                     FutureSign?
                   </span>
                 </h2>
@@ -1536,9 +1615,16 @@ const Home = () => {
                     variants={slideInRight}
                     className="flex flex-col justify-between space-y-6"
                   >
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                    <p className="text-lg text-gray-600 leading-relaxed mb-4">
+                      We deliver high-quality flex printing with vibrant colors, sharp detail, and lasting durability to elevate your brand visibility.
                     </p>
+
+                    <ul className="space-y-2 text-gray-600 text-base">
+                      <li>🎨 Vibrant & high-resolution prints</li>
+                      <li>🛠️ Durable materials for indoor & outdoor use</li>
+                      <li>📐 Custom sizes & flexible designs</li>
+                      <li>🚀 Fast turnaround & reliable delivery</li>
+                    </ul>
 
                     <motion.div 
                       variants={fadeInUp}
