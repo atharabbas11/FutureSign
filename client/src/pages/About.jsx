@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import AboutSkeleton from '../Components/Skeleton/AboutSkeleton'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Play, Clock, Shield, Store, ShoppingBag, Sparkles, Zap, TrendingUp, Printer, Truck, Target, Heart, Star, Award, Users, CheckCircle, CircleUser, Plus, Minus, ChevronLeft, ChevronRight } from 'lucide-react';
 import ReactCompareImage from 'react-compare-image';
@@ -12,8 +12,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
+      staggerChildren: 0.05, // Reduced from 0.1
+      delayChildren: 0.1 // Reduced from 0.2
     }
   }
 };
@@ -199,6 +199,68 @@ const BackgroundPattern = ({ type = "dots", color = "blue", opacity = 0.1 }) => 
   };
 
   return patterns[type] || patterns.dots;
+};
+
+// Navigation Button Component
+const NavigationButton = ({ to, children, variant = "primary", className = "", icon = ArrowRight }) => {
+  const navigate = useNavigate();
+  const Icon = icon;
+  
+  const handleClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Immediate navigation without any delay
+    navigate(to);
+    window.scrollTo(0, 0);
+  };
+  
+  const baseClasses = "font-semibold px-8 py-4 rounded-xl transition-all flex items-center gap-2 cursor-pointer select-none ";
+  
+  const variants = {
+    primary: "bg-white text-[#1e40af] hover:bg-blue-50 shadow-lg",
+    secondary: "bg-transparent border-2 border-white/50 text-white hover:bg-white/10 backdrop-blur-sm",
+    gradient: "bg-gradient-to-r from-[#1e40af] to-[#dd5428] text-white hover:shadow-lg",
+    outline: "bg-transparent border-2 border-white text-white hover:bg-white/10"
+  };
+  
+  return (
+    <motion.button
+      type="button"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={handleClick}
+      className={`${baseClasses} ${variants[variant]} ${className}`}
+    >
+      {children}
+      <Icon className="h-5 w-5" />
+    </motion.button>
+  );
+};
+
+// Gallery Link Button Component
+const GalleryButton = () => {
+  const navigate = useNavigate();
+  
+  const handleClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    navigate('/gallery');
+    window.scrollTo(0, 0);
+  };
+  
+  return (
+    <motion.button
+      type="button"
+      whileHover={{ scale: 1.05 }}
+      onClick={handleClick}
+      className="inline-flex items-center gap-3 bg-gradient-to-r from-[#1e40af] to-[#dd5428] text-white font-semibold px-6 py-3 rounded-xl hover:shadow-lg transition-all group cursor-pointer select-none"
+    >
+      View More Projects
+      <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
+    </motion.button>
+  );
 };
 
 // OurWorkProcess Component
@@ -875,15 +937,12 @@ const FAQSection = ({ activeFaq, setActiveFaq }) => {
 
 // Main About Component
 const About = () => {
-  const [loading, setLoading] = useState(true);
   const [activeFaq, setActiveFaq] = useState(null);
   const [isClient, setIsClient] = useState(false);
 
-  // Initialize as client-side
+  // Initialize as client-side - NO DELAY
   useEffect(() => {
     setIsClient(true);
-    const handle = setTimeout(() => setLoading(false), 300);
-    return () => clearTimeout(handle);
   }, []);
 
   // Timeline Data
@@ -989,7 +1048,7 @@ const About = () => {
     }
   ]
 
-  if (loading || !isClient) return <AboutSkeleton />;
+  if (!isClient) return <AboutSkeleton />;
 
   return (
     <div className="pt-0">
@@ -1027,13 +1086,13 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }} // Reduced from 0.6
           className="relative py-24 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }} // Reduced from 0.6
             className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
           >
             About
@@ -1044,7 +1103,7 @@ const About = () => {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }} // Reduced delay
             className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-10 leading-relaxed"
           >
             We are pioneers in premium flex printing, transforming visions into vibrant realities with cutting-edge technology and unparalleled craftsmanship
@@ -1052,29 +1111,15 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0.2 }} // Reduced delay
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-[#1e40af] font-semibold px-8 py-4 rounded-xl hover:bg-blue-50 transition-all flex items-center gap-2 shadow-lg"
-            >
-              <Link to="/contact" className="flex items-center gap-2">
-                Start Your Project
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-transparent border-2 border-white/50 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-all flex items-center gap-2 backdrop-blur-sm"
-            >
-              <Link to="/services" className="flex items-center gap-2">
-                View Services
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </motion.button>
+            <NavigationButton to="/contact" variant="primary">
+              Start Your Project
+            </NavigationButton>
+            <NavigationButton to="/services" variant="secondary">
+              View Services
+            </NavigationButton>
           </motion.div>
         </motion.div>
       </section>
@@ -1309,13 +1354,7 @@ const About = () => {
                       </div>
                     </div>
                     <div className="pt-6 border-t border-gray-200">
-                      <Link
-                        to="/portfolio"
-                        className="inline-flex items-center gap-3 bg-gradient-to-r from-[#1e40af] to-[#dd5428] text-white font-semibold px-6 py-3 rounded-xl hover:shadow-lg transition-all group"
-                      >
-                        View More Projects
-                        <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
-                      </Link>
+                      <GalleryButton />
                     </div>
                   </motion.div>
                 </div>
@@ -1460,26 +1499,12 @@ const About = () => {
             Join hundreds of satisfied clients who have elevated their brand with our premium printing solutions
           </motion.p>
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-[#1e40af] font-semibold px-8 py-4 rounded-xl hover:bg-blue-50 transition-all flex items-center gap-2 shadow-lg"
-            >
-              <Link to="/contact" className="flex items-center gap-2">
-                Start Your Project
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-transparent border-2 border-white text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-all flex items-center gap-2"
-            >
-              <Link to="/portfolio" className="flex items-center gap-2">
-                View Our Work
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </motion.button>
+            <NavigationButton to="/contact" variant="primary">
+              Start Your Project
+            </NavigationButton>
+            <NavigationButton to="/gallery" variant="outline">
+              View Our Work
+            </NavigationButton>
           </motion.div>
         </div>
       </motion.section>
@@ -1491,3 +1516,4 @@ const About = () => {
 };
 
 export default About;
+
