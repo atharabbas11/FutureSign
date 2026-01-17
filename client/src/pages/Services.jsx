@@ -701,7 +701,7 @@ const Services = () => {
               whileTap={{ scale: 0.95 }}
               className="bg-transparent border-2 border-white text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-all flex items-center gap-2"
             >
-              <Link to="/portfolio" className="flex items-center gap-2">
+              <Link to="/gallery" className="flex items-center gap-2">
                 View Our Work
                 <ArrowRight className="h-5 w-5" />
               </Link>
